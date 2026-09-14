@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DOXA Franchise — Candidate Readiness Guide</title>
+<style>
+  :root {
+    --navy:      #0D2235;
+    --blue:      #29ABE2;
+    --gold:      #F7A823;
+    --magenta:   #EC1C7B;
+    --green:     #39B54A;
+    --teal:      #1B9A8A;
+    --teal-lite: #E8F4F8;
+    --rule:      #D0D8E0;
+    --body-text: #2C3E50;
+    --line:      #B0BEC8;
+    --white:     #ffffff;
+    --bg:        #F5F7FA;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--body-text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 76px;
+    position: relative;
+  }
+  .site-header::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 4px;
+    background: var(--blue);
+  }
+  .logo-block { display: flex; flex-direction: column; gap: 1px; }
+  .logo-doxa { display: flex; align-items: flex-start; gap: 0; line-height: 1; }
+  .logo-doxa span {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-weight: 800;
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+  .logo-doxa .d { color: var(--blue); }
+  .logo-doxa .o { color: var(--gold); }
+  .logo-doxa .x { color: var(--magenta); }
+  .logo-doxa .a { color: var(--green); }
+  .logo-doxa .reg {
+    font-size: 13px;
+    color: var(--white);
+    align-self: flex-start;
+    margin-top: 4px;
+    margin-left: 1px;
+  }
+  .logo-tagline {
+    font-size: 11px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .site-footer .logo-doxa span { font-size: 24px; }
+  .site-footer .logo-tagline { color: rgba(255,255,255,0.5); font-size: 10px; }
+
+  .header-contact { text-align: right; }
+  .header-contact p {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .header-contact .header-email {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-top: 2px;
+    letter-spacing: 0.3px;
+    cursor: default;
+    user-select: all;
+  }
+  .header-contact .phone {
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+    margin-top: 1px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--white);
+    border-bottom: 1px solid var(--rule);
+    padding: 48px 0 36px;
+  }
+  .container { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+  .hero h1 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.05;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+  }
+  .hero h1 .accent { color: var(--blue); }
+  .hero .subtitle {
+    font-size: 15px;
+    color: var(--teal);
+    font-weight: 600;
+    margin-top: 8px;
+    letter-spacing: 0.2px;
+  }
+  .hero-divider { height: 3px; background: var(--blue); margin: 20px 0; border-radius: 2px; }
+  .hero-intro { font-size: 15px; line-height: 1.65; color: var(--body-text); }
+  .callout {
+    background: var(--teal-lite);
+    border-left: 5px solid var(--blue);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-top: 20px;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--navy);
+  }
+
+  /* ── FORM BODY ── */
+  .form-body { padding: 40px 0 60px; }
+
+  .candidate-block {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+  }
+  .candidate-block h2 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--teal);
+    margin-bottom: 18px;
+  }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field-row.single { grid-template-columns: 1fr; }
+  .field-row.triple { grid-template-columns: 1fr 1fr 1fr; }
+  .field-row + .field-row { margin-top: 16px; }
+  .field-group { display: flex; flex-direction: column; gap: 6px; }
+  .field-group label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--navy);
+  }
+  .field-group label .req { color: var(--magenta); margin-left: 2px; }
+  .field-group .hint {
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--line);
+    margin-top: -2px;
+  }
+  input[type="text"], input[type="email"], input[type="tel"], textarea, select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--rule);
+    border-radius: 5px;
+    font-family: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    color: var(--body-text);
+    background: var(--white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  select { cursor: pointer; }
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(41,171,226,0.15);
+  }
+  input.error, textarea.error, select.error { border-color: var(--magenta); }
+
+  /* ── PART SECTIONS ── */
+  .part-header { background: var(--navy); border-radius: 6px; padding: 10px 16px; margin-bottom: 20px; }
+  .part-header h2 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--white);
+  }
+
+  .question-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+  }
+  .q-label {
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--blue);
+    margin-bottom: 4px;
+  }
+  .q-title { font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+  .q-body { font-size: 14px; line-height: 1.65; color: var(--body-text); margin-bottom: 18px; }
+  .q-body p + p { margin-top: 10px; }
+  .answer-area textarea { resize: vertical; min-height: 90px; }
+  .answer-label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--teal);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* ── T/F TOGGLES ── */
+  .tf-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    margin-bottom: 18px;
+  }
+  .tf-row { display: flex; align-items: stretch; }
+  .tf-row:nth-child(odd) { background: var(--teal-lite); }
+  .tf-row:nth-child(even) { background: var(--white); }
+  .tf-row + .tf-row { border-top: 1px solid var(--rule); }
+  .tf-cell-toggle {
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 120px;
+    border-right: 1px solid var(--rule);
+  }
+  .tf-cell-text { padding: 14px 16px; font-size: 13.5px; line-height: 1.55; display: flex; align-items: center; flex: 1; color: var(--body-text); }
+  .toggle-group { display: flex; gap: 6px; }
+  .toggle-btn {
+    width: 38px;
+    height: 30px;
+    border: 2px solid var(--rule);
+    border-radius: 4px;
+    background: var(--white);
+    font-family: 'Barlow', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--line);
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.5px;
+  }
+  .toggle-btn:hover { border-color: var(--blue); color: var(--blue); }
+  .toggle-btn.active-T { background: var(--navy); border-color: var(--navy); color: var(--white); }
+  .toggle-btn.active-F { background: var(--magenta); border-color: var(--magenta); color: var(--white); }
+
+  /* ── CHECKBOXES ── */
+  .check-list { display: flex; flex-direction: column; gap: 10px; }
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--rule);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .check-item:hover { border-color: var(--blue); background: var(--teal-lite); }
+  .check-item.checked { border-color: var(--blue); background: var(--teal-lite); }
+  .check-item input[type="checkbox"] { display: none; }
+  .check-box {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border: 2px solid var(--blue);
+    border-radius: 3px;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    transition: background 0.15s;
+  }
+  .check-item.checked .check-box { background: var(--blue); }
+  .check-box svg { display: none; }
+  .check-item.checked .check-box svg { display: block; }
+  .check-text { font-size: 14px; line-height: 1.5; color: var(--body-text); user-select: none; }
+
+  /* ── SECTION DIVIDER ── */
+  .section-gap { height: 32px; }
+  .part-intro { font-size: 14px; line-height: 1.65; margin-bottom: 20px; color: var(--body-text); }
+
+  /* ── SUBMIT SECTION ── */
+  .submit-section { background: var(--white); border: 1px solid var(--rule); border-radius: 8px; padding: 32px 32px; margin-top: 12px; }
+  .submit-callout {
+    background: var(--teal-lite);
+    border-left: 5px solid var(--teal);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-bottom: 24px;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--navy);
+  }
+  .next-steps-title {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--white);
+    background: var(--navy);
+    padding: 10px 16px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  .submit-section p { font-size: 14px; line-height: 1.65; color: var(--body-text); margin-bottom: 10px; }
+  .submit-section p a { color: var(--blue); font-weight: 600; text-decoration: none; }
+  .submit-section p a:hover { text-decoration: underline; }
+  .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    padding: 14px 32px;
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .submit-btn:hover { background: var(--blue); transform: translateY(-1px); }
+  .submit-btn:active { transform: translateY(0); }
+  .submit-btn:disabled { background: var(--line); cursor: not-allowed; transform: none; }
+  .submit-btn .arrow { font-size: 18px; }
+
+  /* ── STATUS MESSAGES ── */
+  .status-msg { display: none; padding: 14px 18px; border-radius: 6px; font-size: 14px; font-weight: 600; margin-top: 16px; }
+  .status-msg.success { display: block; background: #E8F6EE; border-left: 5px solid var(--green); color: #1A6632; }
+  .status-msg.error-msg { display: block; background: #FEE8F0; border-left: 5px solid var(--magenta); color: #8B0033; }
+
+  /* ── SUCCESS SCREEN ── */
+  .success-screen { display: none; text-align: center; padding: 60px 32px; }
+  .success-screen .checkmark {
+    width: 64px; height: 64px;
+    background: var(--green);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 32px;
+    color: var(--white);
+  }
+  .success-screen h2 {
+    font-family: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+  .success-screen p { font-size: 15px; line-height: 1.65; color: var(--body-text); max-width: 480px; margin: 0 auto 20px; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    background: var(--navy);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 60px;
+  }
+  .footer-right { font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.85); text-align: right; }
+  .footer-right a { color: var(--blue); text-decoration: none; }
+
+  /* ── CONFIG BANNER ── */
+  .config-banner {
+    background: #FFF3CD;
+    border: 2px solid #F7A823;
+    border-radius: 6px;
+    padding: 14px 20px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: #7D5A00;
+    line-height: 1.6;
+  }
+  .config-banner strong { color: #5A3E00; }
+  .config-banner code { background: rgba(0,0,0,0.08); padding: 1px 5px; border-radius: 3px; font-size: 12px; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .field-row, .field-row.triple { grid-template-columns: 1fr; }
+    .site-header { padding: 0 20px; height: auto; padding-top: 14px; padding-bottom: 14px; }
+    .hero h1 { font-size: 34px; }
+    .container { padding: 0 20px; }
+    .question-card, .candidate-block, .submit-section { padding: 22px 20px; }
+    .tf-cell-toggle { min-width: 90px; }
+    .site-footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     CONFIGURATION — Fill these in before sharing the link
+     ══════════════════════════════════════════════════════ -->
+<script>
+const CONFIG = {
+  // ── EmailJS ──────────────────────────────────────────────────────────────
+  EMAILJS_PUBLIC_KEY:   'lAVECSVIDfk3IW1cd',
+  EMAILJS_SERVICE_ID:   'service_w3u9huv',
+  EMAILJS_TEMPLATE_ID:  'template_as29h9s',
+
+  // ── ClientTether ─────────────────────────────────────────────────────────
+  CT_ACCESS_TOKEN: '',
+  CT_WEB_KEY:      '',
+  CT_ACTION_PLAN_ID: '',
+  CT_LEAD_SOURCE_ID: '',
+
+  // ── Zapier Webhook (recommended — avoids CORS browser restriction) ────────
+  ZAPIER_WEBHOOK: '',
+
+  // ── Recipient ────────────────────────────────────────────────────────────
+  TO_EMAIL: 'damon@doxafranchising.com',
+};
+
+const CONFIGURED =
+  CONFIG.EMAILJS_PUBLIC_KEY.trim().length > 0 &&
+  CONFIG.EMAILJS_SERVICE_ID.trim().length > 0 &&
+  CONFIG.EMAILJS_TEMPLATE_ID.trim().length > 0;
+</script>
+<!-- ══════════════════════════════════════════════════════ -->
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="logo-block">
+    <div class="logo-doxa">
+      <span class="d">D</span><span class="o">O</span><span class="x">X</span><span class="a">A</span><span class="reg">®</span>
+    </div>
+    <div class="logo-tagline">Talent Franchising</div>
+  </div>
+  <div class="header-contact">
+    <p>To learn more, contact</p>
+    <span class="header-email" aria-label="franchise at doxatalent dot com">FRANCHISE<span>@</span>DOXATALENT.COM</span>
+    <p class="phone">☎ 208-609-9255</p>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <h1>Is a DOXA Franchise <span class="accent">For</span> You?</h1>
+    <div class="subtitle">A Candidate Readiness Guide</div>
+    <div class="hero-divider"></div>
+    <p class="hero-intro">This guide isn't a formal application. It's a thinking tool. The questions on these pages are the same ones we'll work through on our first call – so the more honest you are here, the better that conversation gets. That's true whether you're ready to jump in today or you're still building toward it from inside a full-time job.</p>
+    <div class="callout">There are no right answers that get you in and no wrong answers that keep you out. What matters is that your answers are real.</div>
+  </div>
+</div>
+
+<!-- FORM -->
+<div class="form-body">
+  <div class="container">
+
+    <div class="config-banner" id="configBanner" style="display:none;">
+      <strong>⚙️ Setup required before sharing this form.</strong><br>
+      Open the HTML file and fill in the <code>CONFIG</code> block at the top:<br>
+      • <strong>EmailJS:</strong> Sign up at <a href="https://emailjs.com" target="_blank">emailjs.com</a> (free) → get your Public Key, Service ID, and Template ID.<br>
+      • <strong>ClientTether:</strong> Go to Settings → API tab in your CT account → copy your X-Access-Token and X-Web-Key.<br>
+      Once filled in, this banner disappears and the form is live.
+    </div>
+
+    <form id="readinessForm" novalidate>
+
+      <!-- ── CANDIDATE INFO ── -->
+      <div class="candidate-block">
+        <h2>Your Information</h2>
+        <div class="field-row">
+          <div class="field-group">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+          </div>
+          <div class="field-group">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
+          </div>
+        </div>
+        <div class="field-row single">
+          <div class="field-group">
+            <label>Current Employment Status</label>
+            <span class="hint">This just helps us tailor the first conversation — there's no wrong answer.</span>
+            <select id="employmentStatus" name="employmentStatus">
+              <option value="">Select one...</option>
+              <option value="Employed full-time, not yet ready to leave">Employed full-time — not yet ready to leave</option>
+              <option value="Employed full-time, actively planning my exit">Employed full-time — actively planning my exit</option>
+              <option value="Employed part-time or contract">Employed part-time or contract</option>
+              <option value="Self-employed / running another business">Self-employed / running another business</option>
+              <option value="Between roles">Between roles</option>
+              <option value="Fully available now">Fully available now</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+           PART ONE — THE MINDSET
+      ══════════════════════════════════════════════ -->
+      <div class="part-header">
+        <h2>Part One — The Mindset</h2>
+      </div>
+
+      <p class="part-intro">
+        The hardest part of this decision has nothing to do with the business model. It has everything to do with whether you've made up your mind to build something of your own — whether that means walking away from a job on day one, or working toward it deliberately while you're still employed.
+      </p>
+
+      <!-- Q1 -->
+      <div class="question-card">
+        <div class="q-label">Question 1</div>
+        <div class="q-title">Where are you on the path away from employment?</div>
+        <div class="q-body">
+          <p>You don't have to have already quit to be a strong fit here. Some of our best franchisees built their DOXA business alongside a full-time job before making the leap – that's a legitimate path, not a lesser one, as long as it's a real plan and not a someday.</p>
+          <p>So think this through honestly: if a recruiter called you tomorrow with a strong offer – good title, solid comp, interesting company – what would you do? Do you know roughly when, and under what conditions, you'd go full-time in the business? If you're planning to build this alongside your current job for a while, do you know how much time you can realistically protect for it each week?</p>
+          <p>The candidates who succeed here – whether they start part-time or jump in with both feet – have already answered these questions honestly. They know where they stand and what has to be true for that to change. If you're still hedging with no plan for how or when that changes, that's worth naming here too.</p>
+        </div>
+        <span class="answer-label">Your answer</span>
+        <div class="answer-area">
+          <textarea id="q1" name="q1" placeholder="Where do you stand today, and what's your plan (if any) for getting to full-time?"></textarea>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="question-card">
+        <div class="q-label">Question 2</div>
+        <div class="q-title">What's actually driving your desire for business ownership?</div>
+        <div class="q-body">
+          <p>Skip the polished answer. Is it autonomy? Income ceiling? Legacy? A specific frustration with where you've been? Something you're trying to build?</p>
+          <p>The sharper your answer, the more resilient you'll be in those early months when the business is still taking shape and the results haven't shown up yet – whether you're building it full-time or squeezing it in around a day job.</p>
+        </div>
+        <span class="answer-label">Your answer</span>
+        <div class="answer-area">
+          <textarea id="q2" name="q2" placeholder="Write your honest answer here..."></textarea>
+        </div>
+      </div>
+
+      <!-- Q3 — T/F -->
+      <div class="question-card">
+        <div class="q-label">Question 3</div>
+        <div class="q-title">Are you comfortable being early?</div>
+        <div class="q-body">
+          <p>The franchisees who thrive inside an emerging brand like DOXA see “early” as an advantage. They want direct access to the people running the company. They have opinions about what's working, and they expect those opinions to carry weight. They're building something – they're not just operating something.</p>
+          <p>If that sounds like you, these should be straightforward:</p>
+        </div>
+        <div class="tf-table">
+          <div class="tf-row" data-tf="tf1">
+            <div class="tf-cell-toggle">
+              <div class="toggle-group">
+                <button type="button" class="toggle-btn" data-val="T">T</button>
+                <button type="button" class="toggle-btn" data-val="F">F</button>
+              </div>
+            </div>
+            <div class="tf-cell-text">When I've been part of something early-stage, my instinct was to lean in and help shape it – not wait for someone to hand me a playbook.</div>
+          </div>
+          <div class="tf-row" data-tf="tf2">
+            <div class="tf-cell-toggle">
+              <div class="toggle-group">
+                <button type="button" class="toggle-btn" data-val="T">T</button>
+                <button type="button" class="toggle-btn" data-val="F">F</button>
+              </div>
+            </div>
+            <div class="tf-cell-text">Having a direct voice with leadership matters more to me than having a fully documented system to follow.</div>
+          </div>
+          <div class="tf-row" data-tf="tf3">
+            <div class="tf-cell-toggle">
+              <div class="toggle-group">
+                <button type="button" class="toggle-btn" data-val="T">T</button>
+                <button type="button" class="toggle-btn" data-val="F">F</button>
+              </div>
+            </div>
+            <div class="tf-cell-text">I can work through ambiguity, knowing my experience and feedback will help improve the process for everyone who comes after me.</div>
+          </div>
+        </div>
+        <input type="hidden" id="tf1" name="tf1" value="">
+        <input type="hidden" id="tf2" name="tf2" value="">
+        <input type="hidden" id="tf3" name="tf3" value="">
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+           PART TWO — THE REALITY CHECK
+      ══════════════════════════════════════════════ -->
+      <div class="section-gap"></div>
+      <div class="part-header">
+        <h2>Part Two — The Reality Check</h2>
+      </div>
+
+      <p class="part-intro">
+        This is where it gets practical. Building a DOXA franchise requires consistent, real effort – especially in the first 6 to 12 months. The go-to-market strategy is relationship-based: networking events, coffee meetings, activating your professional contacts. Whether that time comes from a full week or from early mornings, evenings, and weekends around a current job, it has to actually be on your calendar. It doesn't happen in leftover hours.
+      </p>
+
+      <!-- Q4 -->
+      <div class="question-card">
+        <div class="q-label">Question 4</div>
+        <div class="q-title">Do you have the financial runway – and the time – mapped out?</div>
+        <div class="q-body">
+          <p>We mean actually mapped out – living expenses, personal obligations, plus the investment itself.</p>
+          <p>Write out the reality: what do you need monthly to cover your life? How many months can you sustain that without income from the business? If you're still employed while you build this, your math looks a little different – but map it out anyway: what income does the business eventually need to replace, and roughly when?</p>
+          <p>Also be honest about time: if you're not yet full-time in the business, how many real hours per week can you protect for it – not hoped-for hours, actual ones already carved out of your schedule?</p>
+          <p>The franchisees who've built the strongest businesses went in with these numbers mapped out and their eyes open. They didn't assume the business would ramp faster than it did – and they weren't caught off guard when it didn't.</p>
+        </div>
+        <span class="answer-label">Your answer</span>
+        <div class="answer-area">
+          <textarea id="q4" name="q4" placeholder="Monthly needs, runway, and (if still employed) the hours per week you can realistically commit..."></textarea>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="question-card">
+        <div class="q-label">Question 5</div>
+        <div class="q-title">What does your support system look like?</div>
+        <div class="q-body">
+          <p>Is your partner, spouse, or family genuinely behind this? We're talking truly behind it – not tolerating it. Do the people closest to you understand what the first year looks like, and are they in?</p>
+          <p>If you're building this while still employed, that also means late nights and weekends spent on the business instead of somewhere else. Does your household understand that trade, and are they on board with it for as long as it takes?</p>
+        </div>
+        <span class="answer-label">Your answer</span>
+        <div class="answer-area">
+          <textarea id="q5" name="q5" placeholder="Write your honest answer here..."></textarea>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+           PART THREE — THE HONEST QUESTION
+      ══════════════════════════════════════════════ -->
+      <div class="section-gap"></div>
+      <div class="part-header">
+        <h2>Part Three — The Honest Question</h2>
+      </div>
+
+      <p class="part-intro">
+        This is the one most people skip. Work through it anyway.
+      </p>
+
+      <!-- Q6 — Checkboxes -->
+      <div class="question-card">
+        <div class="q-label">Question 6</div>
+        <div class="q-title">What's been in the way?</div>
+        <div class="q-body">
+          <p>Most first-time entrepreneurs don't lack the skills or the drive. What slows them down is FUD: fear, uncertainty, and doubt. It shows up right when things get real, and it follows a remarkably consistent pattern across people who eventually build great businesses – full-time from day one or gradually alongside a job.</p>
+          <p>Which of these have kept you from owning a business before now? <em>Select all that apply.</em></p>
+        </div>
+        <div class="check-list">
+          <div class="check-item" role="checkbox" tabindex="0">
+            <input type="checkbox" name="fud" value="Fear of failure and what it would mean for how others see me">
+            <div class="check-box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <span class="check-text">Fear of failure and what it would mean for how others see me</span>
+          </div>
+          <div class="check-item" role="checkbox" tabindex="0">
+            <input type="checkbox" name="fud" value="Uncertainty about whether I can replace my current income">
+            <div class="check-box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <span class="check-text">Uncertainty about whether I can replace my current income</span>
+          </div>
+          <div class="check-item" role="checkbox" tabindex="0">
+            <input type="checkbox" name="fud" value="Doubt that I have what it takes to sell or build a client base">
+            <div class="check-box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <span class="check-text">Doubt that I have what it takes to sell or build a client base</span>
+          </div>
+          <div class="check-item" role="checkbox" tabindex="0">
+            <input type="checkbox" name="fud" value="Gaps in my confidence around running a business operationally">
+            <div class="check-box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <span class="check-text">Gaps in my confidence around running a business operationally</span>
+          </div>
+          <div class="check-item" role="checkbox" tabindex="0">
+            <input type="checkbox" name="fud" value="Not sure how to build this around a job I'm not ready to leave yet">
+            <div class="check-box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <span class="check-text">Not sure how to build this around a job I'm not ready to leave yet</span>
+          </div>
+          <div class="check-item" role="checkbox" tabindex="0">
+            <input type="checkbox" name="fud" value="Concern that the timing isn't right in my personal life">
+            <div class="check-box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <span class="check-text">Concern that the timing isn't right in my personal life</span>
+          </div>
+          <div class="check-item" role="checkbox" tabindex="0">
+            <input type="checkbox" name="fud" value="Worry about what happens if I invest and it doesn't work out">
+            <div class="check-box"><svg width="11" height="9" viewBox="0 0 11 9" fill="none"><path d="M1 4L4 7.5L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+            <span class="check-text">Worry about what happens if I invest and it doesn't work out</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+           WHAT COMES NEXT + SUBMIT
+      ══════════════════════════════════════════════ -->
+      <div class="section-gap"></div>
+      <div class="submit-section">
+        <div class="next-steps-title">What Comes Next</div>
+        <div class="submit-callout">There's no wrong answer here. Knowing which ones are loudest for you helps us make that first conversation actually useful — and helps us map a path that fits your situation, whether that's now or six months from now.</div>
+        <p>If you worked through these questions and you still want to talk – that's a good sign. It means you went through the hard part of this with your eyes open. That's exactly the kind of person we want across the table from us, whether you're ready to start this week or you're building toward it deliberately.</p>
+        <p>Our first conversation is a real conversation about whether a DOXA franchise makes sense for your life, your goals, and your timeline. We'll ask you hard questions. We expect you to come with hard ones of your own.</p>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          Submit My Answers <span class="arrow">→</span>
+        </button>
+
+        <div class="status-msg" id="statusMsg"></div>
+      </div>
+
+    </form>
+
+    <!-- SUCCESS SCREEN -->
+    <div class="success-screen" id="successScreen">
+      <div class="checkmark">✓</div>
+      <h2>You're In The Queue</h2>
+      <p>Your answers have been submitted and your information is in our system. We'll reach out within one business day to schedule your first conversation.</p>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="logo-block">
+    <div class="logo-doxa">
+      <span class="d">D</span><span class="o">O</span><span class="x">X</span><span class="a">A</span><span class="reg">®</span>
+    </div>
+  </div>
+  <div class="footer-right">
+    DOXA® &nbsp;|&nbsp; <a href="https://doxafranchising.com" target="_blank">DOXAfranchising.com</a>
+  </div>
+</footer>
+
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+
+<script>
+window.addEventListener('load', function() {
+
+  if (!CONFIGURED) {
+    document.getElementById('configBanner').style.display = 'block';
+  }
+
+  if (CONFIG.EMAILJS_PUBLIC_KEY && CONFIG.EMAILJS_PUBLIC_KEY.trim().length > 0) {
+    try { emailjs.init(CONFIG.EMAILJS_PUBLIC_KEY); }
+    catch(e) { console.warn('EmailJS not loaded:', e); }
+  }
+
+  var tfValues = { tf1: '', tf2: '', tf3: '' };
+
+  document.querySelectorAll('.toggle-btn').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      var val = this.getAttribute('data-val');
+      var row = this.closest('[data-tf]');
+      var id  = row.getAttribute('data-tf');
+      tfValues[id] = val;
+      document.getElementById(id).value = val;
+      row.querySelectorAll('.toggle-btn').forEach(function(b) {
+        b.classList.remove('active-T', 'active-F');
+      });
+      this.classList.add('active-' + val);
+    });
+  });
+
+  document.querySelectorAll('.check-item').forEach(function(item) {
+    item.addEventListener('click', function() {
+      var cb = this.querySelector('input[type="checkbox"]');
+      cb.checked = !cb.checked;
+      this.classList.toggle('checked', cb.checked);
+    });
+    item.addEventListener('keydown', function(e) {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  });
+
+  function getCheckedFUD() {
+    var items = Array.from(document.querySelectorAll('input[name="fud"]:checked'));
+    return items.map(function(cb) { return cb.value; }).join('\n• ');
+  }
+
+  function validate() {
+    var ok = true;
+    ['firstName', 'lastName'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (!el.value.trim()) { el.classList.add('error'); ok = false; }
+      else { el.classList.remove('error'); }
+    });
+    return ok;
+  }
+
+  function buildEmailBody(data) {
+    var fud = data.fud ? '• ' + data.fud : 'None selected';
+    return 'DOXA FRANCHISE - CANDIDATE READINESS GUIDE\n'
+      + '===========================================\n'
+      + 'Submitted: ' + new Date().toLocaleString() + '\n\n'
+      + 'Name:                 ' + data.firstName + ' ' + data.lastName + '\n'
+      + 'Employment status:    ' + (data.employmentStatus || '[Not specified]') + '\n\n'
+      + 'Q1 - Where are you on the path away from employment?\n' + (data.q1 || '[No response]') + '\n\n'
+      + 'Q2 - Driving desire for ownership?\n' + (data.q2 || '[No response]') + '\n\n'
+      + 'Q3 - Comfortable being early?\n'
+      + '  Statement 1: ' + (data.tf1 || '[Not answered]') + '\n'
+      + '  Statement 2: ' + (data.tf2 || '[Not answered]') + '\n'
+      + '  Statement 3: ' + (data.tf3 || '[Not answered]') + '\n\n'
+      + 'Q4 - Financial runway and time available?\n' + (data.q4 || '[No response]') + '\n\n'
+      + 'Q5 - Support system?\n' + (data.q5 || '[No response]') + '\n\n'
+      + 'Q6 - What has been in the way?\n' + fud;
+  }
+
+  function showStatus(msg, type) {
+    var el = document.getElementById('statusMsg');
+    el.textContent = msg;
+    el.className = 'status-msg ' + type;
+  }
+
+  function clearStatus() {
+    var el = document.getElementById('statusMsg');
+    el.className = 'status-msg';
+    el.textContent = '';
+  }
+
+  function submitToCRM(data) {
+    if (CONFIG.ZAPIER_WEBHOOK && CONFIG.ZAPIER_WEBHOOK.trim().length > 0) {
+      var zapPayload = {
+        firstName:         data.firstName,
+        lastName:          data.lastName,
+        employmentStatus:  data.employmentStatus || '',
+        q1:                data.q1  || '',
+        q2:                data.q2  || '',
+        tf1:               data.tf1 || '',
+        tf2:               data.tf2 || '',
+        tf3:               data.tf3 || '',
+        q4:                data.q4  || '',
+        q5:                data.q5  || '',
+        fud:               data.fud || '',
+        notes:             buildEmailBody(data),
+        source:             'DOXA Candidate Readiness Form',
+        submitted_at:       new Date().toISOString(),
+        action_plan_id:     CONFIG.CT_ACTION_PLAN_ID  || '',
+        lead_source_id:     CONFIG.CT_LEAD_SOURCE_ID  || '',
+      };
+      return fetch(CONFIG.ZAPIER_WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(zapPayload),
+      }).then(function(r) {
+        if (!r.ok) throw new Error('Zapier webhook returned ' + r.status);
+        return r;
+      });
+    }
+
+    var payload = {
+      firstName: data.firstName,
+      lastName:  data.lastName,
+      whiteboard: buildEmailBody(data),
+      new_lead_notification: '2',
+      contact_type: '1',
+    };
+    if (CONFIG.CT_ACTION_PLAN_ID) payload.action_plan_id = CONFIG.CT_ACTION_PLAN_ID;
+    if (CONFIG.CT_LEAD_SOURCE_ID) payload.lead_source_id = CONFIG.CT_LEAD_SOURCE_ID;
+
+    return fetch('https://api.clienttether.com/v2/api/create_client', {
+      method: 'POST',
+      headers: {
+        'Content-Type':   'application/json',
+        'x-access-token': CONFIG.CT_ACCESS_TOKEN,
+        'x-web-key':      CONFIG.CT_WEB_KEY,
+      },
+      body: JSON.stringify(payload),
+    }).then(function(r) { return r.json(); })
+      .then(function(json) {
+        if (json.ResultCode !== 'CT200' && json.ResultCode !== 'CT_200') {
+          throw new Error('ClientTether: ' + (json.Message || 'Unknown error'));
+        }
+        return json;
+      });
+  }
+
+  function sendEmail(data) {
+    var fud = data.fud ? '• ' + data.fud : 'None selected';
+    return emailjs.send(CONFIG.EMAILJS_SERVICE_ID, CONFIG.EMAILJS_TEMPLATE_ID, {
+      to_email:          CONFIG.TO_EMAIL,
+      from_name:         data.firstName + ' ' + data.lastName,
+      employment_status: data.employmentStatus || '[Not specified]',
+      q1:                data.q1  || '[No response]',
+      q2:                data.q2  || '[No response]',
+      tf1:               data.tf1 || '[Not answered]',
+      tf2:               data.tf2 || '[Not answered]',
+      tf3:               data.tf3 || '[Not answered]',
+      q4:                data.q4  || '[No response]',
+      q5:                data.q5  || '[No response]',
+      fud:               fud,
+      submitted_at:       new Date().toLocaleString(),
+    });
+  }
+
+  document.getElementById('readinessForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    if (!validate()) {
+      showStatus('Please fill in the required fields marked with *.', 'error-msg');
+      return;
+    }
+
+    var btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.innerHTML = 'Submitting... <span class="arrow">&#x23F3;</span>';
+    clearStatus();
+
+    var data = {
+      firstName:         document.getElementById('firstName').value.trim(),
+      lastName:          document.getElementById('lastName').value.trim(),
+      employmentStatus:  document.getElementById('employmentStatus').value,
+      q1:                document.getElementById('q1').value.trim(),
+      q2:                document.getElementById('q2').value.trim(),
+      tf1:               tfValues.tf1,
+      tf2:               tfValues.tf2,
+      tf3:               tfValues.tf3,
+      q4:                document.getElementById('q4').value.trim(),
+      q5:                document.getElementById('q5').value.trim(),
+      fud:               getCheckedFUD(),
+    };
+
+    var tasks = [];
+
+    if (CONFIG.EMAILJS_PUBLIC_KEY && CONFIG.EMAILJS_PUBLIC_KEY.trim().length > 0) {
+      if (typeof emailjs !== 'undefined') {
+        tasks.push(
+          sendEmail(data).catch(function(err) {
+            console.error('EmailJS error:', err);
+            return { _error: 'Email: ' + err.message };
+          })
+        );
+      } else {
+        console.warn('EmailJS library not available - skipping email send');
+      }
+    }
+
+    if (tasks.length === 0) {
+      showSuccess();
+      return;
+    }
+
+    Promise.all(tasks).then(function(results) {
+      btn.disabled = false;
+      btn.innerHTML = 'Submit My Answers <span class="arrow">&#x2192;</span>';
+
+      var errors = results
+        .filter(function(r) { return r && r._error; })
+        .map(function(r) { return r._error; });
+
+      if (errors.length === 0) {
+        showSuccess();
+      } else {
+        showStatus(
+          'There was an issue: ' + errors.join('; ') +
+          '. Please try again or email franchise[at]doxatalent.com directly.',
+          'error-msg'
+        );
+      }
+    });
+  });
+
+  function showSuccess() {
+    document.getElementById('readinessForm').style.display = 'none';
+    document.getElementById('successScreen').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+});
+</script>
+
+</body>
+</html>
